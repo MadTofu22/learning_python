@@ -22,15 +22,21 @@ print(testArr[-3])
 
 
 class Ball:
-    def getBallProps(self):
+    def __init__ (self, radius):
+        self.radius = radius
+
+    def printProps(self):
         print(self.__dict__)
 
-myBall = Ball()
+myBall = Ball(5)
 myBall.color = 'red'
-myBall.radius = 5
 myBall.weight = 10
-myBall.getBallProps()
+myBall.printProps()
 
-myOtherBall = Ball()
-myOtherBall.shoeCount = 5
+class SoccerBall(Ball):
+    def __init__ (self, shape):
+        Ball.__init__(self, 8)
+        self.shapePattern = shape
 
+myOtherBall = SoccerBall('pentagon')
+myOtherBall.printProps()
